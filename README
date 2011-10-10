@@ -1,1 +1,10 @@
 Experiments with "lambda expressions" in Java - via inner classes.
+
+== TODO ==
+Create class SelectableList (include List).
+Create a list of some items (probably numbers for start).
+
+Simulate ".select(lambda)" via 
+Create an interface Selector - method evaluate(number).
+Create class implementing Selector with concrete evaluation (e.g. select numbers less than 100).
+
