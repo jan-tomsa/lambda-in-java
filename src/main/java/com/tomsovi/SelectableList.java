@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tomsovi;
 
 import java.util.ArrayList;
@@ -24,5 +20,14 @@ public class SelectableList {
     
     public int size() {
         return list.size();
+    }
+    
+    public List<Integer> selectLessThan(Integer n) {
+        List result = new ArrayList<Integer>();
+        for (Integer i : list) {
+            if (i<n) 
+                result.add(i);
+        }
+        return result;
     }
 }
