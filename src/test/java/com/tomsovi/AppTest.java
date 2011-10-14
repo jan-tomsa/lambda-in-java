@@ -33,6 +33,17 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        SelectableList sl = new SelectableList();
+        sl.add(1);
+        sl.add(2);
+        sl.add(3);
+        sl.add(10);
+        sl.add(20);
+        sl.add(30);
+        sl.add(100);
+        sl.add(200);
+        sl.add(1000);
+        int size = sl.size();
+        assertEquals(9, size);
     }
 }
