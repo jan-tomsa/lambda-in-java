@@ -7,33 +7,29 @@ import java.util.List;
  *
  * @author P3400177
  */
-public class SelectableList {
-    private List<Integer> list;
+public class SelectableList<T> {
+    private List<T> list;
     
     public SelectableList() {
-        list = new ArrayList<Integer>();
+        list = new ArrayList<T>();
     }
     
-    public void add(Integer i) {
+    public void add(T i) {
         list.add(i);
+    }
+    
+    public void addAll(List<T> list) {
+        for (T i : list)
+            list.add(i);
     }
     
     public int size() {
         return list.size();
     }
     
-    public List<Integer> selectLessThan(Integer n) {
-        List result = new ArrayList<Integer>();
-        for (Integer i : list) {
-            if (i<n) 
-                result.add(i);
-        }
-        return result;
-    }
-    
-    public List<Integer> select( Selector<Integer> selector ) {
-        List result = new ArrayList<Integer>();
-        for (Integer i : list) {
+    public List<T> select( Selector<T> selector ) {
+        List result = new ArrayList<T>();
+        for (T i : list) {
             if (selector.evaluate(i) ) 
                 result.add(i);
         }

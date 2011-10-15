@@ -13,7 +13,7 @@ import junit.framework.TestCase;
  * @author P3400177
  */
 public class StringTest extends TestCase {
-    private List<String> list;
+    private SelectableList<String> list;
     public StringTest(String testName) {
         super(testName);
     }
@@ -21,7 +21,11 @@ public class StringTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        list = Arrays.asList("A", "B", "C", "Hello", "World", "Do", "You", "Like", "Java", "?");        
+        List<String> l = Arrays.asList("A", "B", "C", "Hello", "World", "Do", "You", "Like", "Java", "?");
+        list = new SelectableList<String>();
+        //list.addAll(l);
+        for (String s : l)
+            list.add(s);
     }
     
     @Override
@@ -29,8 +33,19 @@ public class StringTest extends TestCase {
         super.tearDown();
     }
     
-    public void testHello() {
-        ;
+    public void testSelectableListSize() {
+        int size = list.size();
+        assertEquals(10, size);
+    }
+    
+    public void testSelectByLength() {
+        int size =
+            list.select( new Selector<String>() {
+                            public boolean evaluate(String n) {
+                                return n.length() == 1;
+                            }
+                        } ).size();
+        assertEquals(4, size);
     }
     
 }

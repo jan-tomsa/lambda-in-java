@@ -10,7 +10,7 @@ import junit.framework.TestSuite;
  */
 public class IntegerTest extends TestCase {
 
-    private SelectableList sl;
+    private SelectableList<Integer> sl;
 
      /**
      * Create the test case
@@ -30,7 +30,7 @@ public class IntegerTest extends TestCase {
 
     @Override
     public void setUp() {
-        sl = new SelectableList();
+        sl = new SelectableList<Integer>();
         sl.add(1);
         sl.add(2);
         sl.add(3);
@@ -45,15 +45,6 @@ public class IntegerTest extends TestCase {
     public void testSizeIs9() {
         int size = sl.size();
         assertEquals(9, size);
-    }
-    
-    /** 
-     * Test less than n selector as static class
-     */
-    public void testLessThan100ShouldReturn6Items() {
-        List<Integer> reducedList = sl.selectLessThan(100);
-        int size = reducedList.size();
-        assertEquals(6, size);
     }
     
     /** 
