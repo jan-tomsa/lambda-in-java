@@ -47,16 +47,75 @@ public class AppTest extends TestCase {
         assertEquals(9, size);
     }
     
+    /** 
+     * Test less than n selector as static class
+     */
     public void testLessThan100ShouldReturn6Items() {
         List<Integer> reducedList = sl.selectLessThan(100);
         int size = reducedList.size();
         assertEquals(6, size);
     }
     
-    public void testLessThan100ShouldReturn6ItemsWithSelector() {
+    /** 
+     * Test selector as static class
+     */
+    public void testLessThan200ShouldReturn7ItemsWithSelector() {
         Selector selector = new LessThanSelector(200);
         List<Integer> reducedList = sl.select(selector);
         int size = reducedList.size();
         assertEquals(7, size);
+    }
+    
+    /** 
+     * Test selector as anonymous class
+     */
+    public void testAnonymousSelectorShouldSelectAll9() {
+        Selector allSelector = new Selector() {
+            public boolean evaluate(Integer n) {
+                return true;
+            }
+        };
+        List<Integer> reducedList = sl.select(allSelector);
+        int size = reducedList.size();
+        assertEquals(9, size);
+    }
+    
+    /** 
+     * Test selector as anonymous class
+     */
+    public void testAnonymousSelectorGreaterThan100ShouldSelect2() {
+        Selector greaterThan100Selector = new Selector() {
+            public boolean evaluate(Integer n) {
+                return n > 100;
+            }
+        };
+        List<Integer> reducedList = sl.select(greaterThan100Selector);
+        int size = reducedList.size();
+        assertEquals(2, size);
+    }
+    
+    /** 
+     * Test selector as anonymous class - concise syntax
+     */
+    public void testAnonymousSelectorGreaterThan100ShouldSelect2Concise() {
+        List<Integer> reducedList = sl.select( new Selector() {
+                                                    public boolean evaluate(Integer n) {
+                                                        return n > 100;
+                                                    }
+                                                });
+        int size = reducedList.size();
+        assertEquals(2, size);
+    }
+
+    /** 
+     * Test selector as anonymous class - more concise syntax
+     */
+    public void testAnonymousSelectorLessThan10ShouldSelect3MoreConcise() {
+        int size = sl.select( new Selector() {
+                                    public boolean evaluate(Integer n) {
+                                        return n < 10;
+                                    }
+                                }).size();
+        assertEquals(3, size);
     }
 }
