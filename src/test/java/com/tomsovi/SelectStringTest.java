@@ -12,9 +12,9 @@ import junit.framework.TestCase;
  *
  * @author P3400177
  */
-public class StringTest extends TestCase {
+public class SelectStringTest extends TestCase {
     private SelectableList<String> list;
-    public StringTest(String testName) {
+    public SelectStringTest(String testName) {
         super(testName);
     }
     

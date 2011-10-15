@@ -27,12 +27,24 @@ public class SelectableList<T> {
         return list.size();
     }
     
+    public T get(int index) {
+        return list.get(index);
+    }
+    
     public List<T> select( Selector<T> selector ) {
-        List result = new ArrayList<T>();
+        List<T> result = new ArrayList<T>();
         for (T i : list) {
             if (selector.evaluate(i) ) 
                 result.add(i);
         }
         return result;
      }
+    
+    public List<Object> collect( Collector<T> collector ) {
+        List<Object> result = new ArrayList<Object>();
+        for (T i : list) {
+            result.add( ((Collector<T>)collector).evaluate(i) );
+        }
+        return result;
+    }
 }

@@ -8,7 +8,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class IntegerTest extends TestCase {
+public class SelectIntegerTest extends TestCase {
 
     private SelectableList<Integer> sl;
 
@@ -17,7 +17,7 @@ public class IntegerTest extends TestCase {
      *
      * @param testName name of the test case
      */
-    public IntegerTest( String testName ) {
+    public SelectIntegerTest( String testName ) {
         super( testName );
     }
 
@@ -25,7 +25,7 @@ public class IntegerTest extends TestCase {
      * @return the suite of tests being tested
      */
     public static Test suite() {
-        return new TestSuite( IntegerTest.class );
+        return new TestSuite( SelectIntegerTest.class );
     }
 
     @Override
