@@ -57,16 +57,6 @@ public class AppTest extends TestCase {
     }
     
     /** 
-     * Test selector as static class
-     */
-    public void testLessThan200ShouldReturn7ItemsWithSelector() {
-        Selector selector = new LessThanSelector(200);
-        List<Integer> reducedList = sl.select(selector);
-        int size = reducedList.size();
-        assertEquals(7, size);
-    }
-    
-    /** 
      * Test selector as anonymous class
      */
     public void testAnonymousSelectorShouldSelectAll9() {
