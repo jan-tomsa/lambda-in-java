@@ -8,7 +8,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase {
+public class IntegerTest extends TestCase {
 
     private SelectableList sl;
 
@@ -17,7 +17,7 @@ public class AppTest extends TestCase {
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName ) {
+    public IntegerTest( String testName ) {
         super( testName );
     }
 
@@ -25,7 +25,7 @@ public class AppTest extends TestCase {
      * @return the suite of tests being tested
      */
     public static Test suite() {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( IntegerTest.class );
     }
 
     @Override
@@ -60,7 +60,7 @@ public class AppTest extends TestCase {
      * Test selector as anonymous class
      */
     public void testAnonymousSelectorShouldSelectAll9() {
-        Selector allSelector = new Selector() {
+        Selector<Integer> allSelector = new Selector<Integer>() {
             public boolean evaluate(Integer n) {
                 return true;
             }
@@ -74,7 +74,7 @@ public class AppTest extends TestCase {
      * Test selector as anonymous class
      */
     public void testAnonymousSelectorGreaterThan100ShouldSelect2() {
-        Selector greaterThan100Selector = new Selector() {
+        Selector<Integer> greaterThan100Selector = new Selector<Integer>() {
             public boolean evaluate(Integer n) {
                 return n > 100;
             }
@@ -88,7 +88,7 @@ public class AppTest extends TestCase {
      * Test selector as anonymous class - concise syntax
      */
     public void testAnonymousSelectorGreaterThan100ShouldSelect2Concise() {
-        List<Integer> reducedList = sl.select( new Selector() {
+        List<Integer> reducedList = sl.select( new Selector<Integer>() {
                                                     public boolean evaluate(Integer n) {
                                                         return n > 100;
                                                     }
@@ -101,7 +101,7 @@ public class AppTest extends TestCase {
      * Test selector as anonymous class - more concise syntax
      */
     public void testAnonymousSelectorLessThan10ShouldSelect3MoreConcise() {
-        int size = sl.select( new Selector() {
+        int size = sl.select( new Selector<Integer>() {
                                     public boolean evaluate(Integer n) {
                                         return n < 10;
                                     }

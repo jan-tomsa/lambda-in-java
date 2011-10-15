@@ -4,6 +4,6 @@ package com.tomsovi;
  *
  * @author P3400177
  */
-interface Selector {
-    public boolean evaluate(Integer n);
+interface Selector<T> {
+    public boolean evaluate(T n);
 }
