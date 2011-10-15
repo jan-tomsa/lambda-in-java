@@ -28,6 +28,7 @@ public class AppTest extends TestCase {
         return new TestSuite( AppTest.class );
     }
 
+    @Override
     public void setUp() {
         sl = new SelectableList();
         sl.add(1);
@@ -50,5 +51,12 @@ public class AppTest extends TestCase {
         List<Integer> reducedList = sl.selectLessThan(100);
         int size = reducedList.size();
         assertEquals(6, size);
+    }
+    
+    public void testLessThan100ShouldReturn6ItemsWithSelector() {
+        Selector selector = new LessThanSelector(200);
+        List<Integer> reducedList = sl.select(selector);
+        int size = reducedList.size();
+        assertEquals(7, size);
     }
 }

@@ -30,4 +30,13 @@ public class SelectableList {
         }
         return result;
     }
+    
+    public List<Integer> select( Selector selector ) {
+        List result = new ArrayList<Integer>();
+        for (Integer i : list) {
+            if (selector.evaluate(i) ) 
+                result.add(i);
+        }
+        return result;
+     }
 }
