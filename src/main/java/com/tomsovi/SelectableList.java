@@ -1,13 +1,14 @@
 package com.tomsovi;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  *
  * @author P3400177
  */
-public class SelectableList<T> {
+public class SelectableList<T> implements Iterable<T> {
     private List<T> list;
     
     public SelectableList() {
@@ -46,5 +47,9 @@ public class SelectableList<T> {
             result.add( ((Collector<T>)collector).evaluate(i) );
         }
         return result;
+    }
+
+    public Iterator<T> iterator() {
+        return list.iterator();
     }
 }
