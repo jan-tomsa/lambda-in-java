@@ -19,8 +19,8 @@ public class SelectableList<T> implements Iterable<T> {
         list.add(i);
     }
     
-    public void addAll(List<T> list) {
-        for (T i : list)
+    public void addAll(List<T> addedList) {
+        for (T i : addedList)
             list.add(i);
     }
     

@@ -61,7 +61,7 @@ public class App
         Integer limit = 10;
         Integer multiplier = 5;
         
-        System.out.println("args.length: " + args.length);
+        //System.out.println("args.length: " + args.length);
         if (args.length>0) {
             limit = Integer.parseInt(args[0]);
             if (args.length>1)

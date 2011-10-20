@@ -21,11 +21,9 @@ public class SelectStringTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        List<String> l = Arrays.asList("A", "B", "C", "Hello", "World", "Do", "You", "Like", "Java", "?");
+        List<String> stringList = Arrays.asList("A", "B", "C", "Hello", "World", "Do", "You", "Like", "Java", "?");
         list = new SelectableList<String>();
-        //list.addAll(l);
-        for (String s : l)
-            list.add(s);
+        list.addAll(stringList);
     }
     
     @Override

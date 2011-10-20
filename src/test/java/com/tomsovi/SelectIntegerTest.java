@@ -10,7 +10,7 @@ import junit.framework.TestSuite;
  */
 public class SelectIntegerTest extends TestCase {
 
-    private SelectableList<Integer> sl;
+    private SelectableList<Integer> list;
 
      /**
      * Create the test case
@@ -30,20 +30,20 @@ public class SelectIntegerTest extends TestCase {
 
     @Override
     public void setUp() {
-        sl = new SelectableList<Integer>();
-        sl.add(1);
-        sl.add(2);
-        sl.add(3);
-        sl.add(10);
-        sl.add(20);
-        sl.add(30);
-        sl.add(100);
-        sl.add(200);
-        sl.add(1000);
+        list = new SelectableList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(100);
+        list.add(200);
+        list.add(1000);
     }
     
     public void testSizeIs9() {
-        int size = sl.size();
+        int size = list.size();
         assertEquals(9, size);
     }
     
@@ -56,9 +56,10 @@ public class SelectIntegerTest extends TestCase {
                 return true;
             }
         };
-        List<Integer> reducedList = sl.select(allSelector);
-        int size = reducedList.size();
-        assertEquals(9, size);
+        List<Integer> reducedList = list.select(allSelector);
+        int listSize = list.size();
+        int reducedListSize = reducedList.size();
+        assertEquals(listSize, reducedListSize);
     }
     
     /** 
@@ -70,7 +71,7 @@ public class SelectIntegerTest extends TestCase {
                 return n > 100;
             }
         };
-        List<Integer> reducedList = sl.select(greaterThan100Selector);
+        List<Integer> reducedList = list.select(greaterThan100Selector);
         int size = reducedList.size();
         assertEquals(2, size);
     }
@@ -78,8 +79,8 @@ public class SelectIntegerTest extends TestCase {
     /** 
      * Test selector as anonymous class - concise syntax
      */
-    public void testAnonymousSelectorGreaterThan100ShouldSelect2Concise() {
-        List<Integer> reducedList = sl.select( new Selector<Integer>() {
+    public void testAnonymousSelectorGreaterThan100ShouldSelect2_Concise() {
+        List<Integer> reducedList = list.select( new Selector<Integer>() {
                                                     public boolean evaluate(Integer n) {
                                                         return n > 100;
                                                     }
@@ -91,8 +92,8 @@ public class SelectIntegerTest extends TestCase {
     /** 
      * Test selector as anonymous class - more concise syntax
      */
-    public void testAnonymousSelectorLessThan10ShouldSelect3MoreConcise() {
-        int size = sl.select( new Selector<Integer>() {
+    public void testAnonymousSelectorLessThan10ShouldSelect3_MoreConcise() {
+        int size = list.select( new Selector<Integer>() {
                                     public boolean evaluate(Integer n) {
                                         return n < 10;
                                     }
