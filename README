@@ -1,10 +1,23 @@
 Experiments with "lambda expressions" in Java - via inner classes.
 
-== TODO ==
-Create class SelectableList (include List).
-Create a list of some items (probably numbers for start).
+Goal:
+mimic Smalltalk / Ruby syntax of select/collect from lists:
 
-Simulate ".select(lambda)" via 
-Create an interface Selector - method evaluate(number).
-Create class implementing Selector with concrete evaluation (e.g. select numbers less than 100).
+Smalltalk
+array select: [ |e| e < 10 ]
 
+Ruby
+array.select{ |e| e < 10 }
+
+----
+
+Class SelectableList
+methods:
+* select
+* collect
+
+argument: 
+*anonymous inner class implementing interface
+  ** Selector 
+  ** Collector
+Both interfaces define method evaluate(T n) - to be implemented in anonymous inner class
